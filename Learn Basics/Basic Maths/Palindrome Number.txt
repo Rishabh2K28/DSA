@@ -1,0 +1,12 @@
+bool isPalindrome(int x) {
+    if (x<0) return false;
+    int sub = x;
+    int revnum = 0;
+    while(x!=0){
+        if (revnum > INT_MAX/10 || revnum < INT_MIN/10) return false;
+        int lastdigit = x%10;
+        x = x/10;
+        revnum = (revnum*10) + lastdigit;
+    }
+    return (revnum == sub);
+}

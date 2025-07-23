@@ -1,0 +1,24 @@
+//Brute Force
+
+int p1=0, p2=n-1;
+while(p1<p2){
+    swap(nums[p1],nums[p2]);
+    p1++;
+    p2--;
+}
+return nums;
+
+//Optimal Approach
+
+void f(int l, int r, vector<int> &nums){
+    if (l>=r) return;
+    swap(nums[l], nums[r]);
+    f(l+1, r-1,nums);
+}
+
+vector<int> reverseArray(int n, vector<int> &nums)
+{
+    // Write your code here.
+    f(0,n-1,nums);
+    return nums;
+}
